@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сергей Малицкий — AI-автоматизация для автобизнеса</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --alt:#f6f5f4; --text:rgba(0,0,0,.95);
+    --gray5:#615d59; --gray3:#a39e98; --dark:#31302e;
+    --blue:#0075de; --blue-active:#005bab;
+    --badge-bg:#f2f9ff; --badge-tx:#097fe8;
+    --border:rgba(0,0,0,.1);
+    --card-shadow:rgba(0,0,0,.04) 0 4px 18px, rgba(0,0,0,.027) 0 2px 7.8px, rgba(0,0,0,.02) 0 .8px 2.9px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;font-size:16px}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+
+  nav{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);z-index:10}
+  .nav-in{max-width:1100px;margin:0 auto;padding:.85rem 1.5rem;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-weight:700;font-size:1rem;letter-spacing:-.01em}
+  .nav-links{display:flex;gap:1.5rem;font-size:.94rem;font-weight:500;align-items:center}
+  .nav-links a{color:var(--text)}
+  .nav-links a:hover{color:var(--blue);text-decoration:none}
+  .nav-cta{background:var(--blue);color:#fff !important;padding:.45rem 1rem;border-radius:4px;font-weight:600;font-size:.9rem}
+  .nav-cta:hover{background:var(--blue-active);text-decoration:none}
+
+  .hero{padding:6.5rem 0 5rem;text-align:center;max-width:820px;margin:0 auto}
+  .badge{display:inline-block;background:var(--badge-bg);color:var(--badge-tx);font-size:.75rem;font-weight:600;letter-spacing:.125px;padding:.3rem .9rem;border-radius:9999px;margin-bottom:1.6rem}
+  h1{font-size:3.6rem;font-weight:700;line-height:1.04;letter-spacing:-.033em}
+  .hook{font-size:1.3rem;font-weight:500;line-height:1.45;margin-top:1.8rem;color:var(--text)}
+  .hook .num{color:var(--blue);font-weight:700}
+  .sub{margin-top:1.2rem;color:var(--gray5);font-size:1.05rem}
+  .stack{margin-top:2rem;display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  .chip{background:var(--alt);border:1px solid var(--border);color:var(--gray5);font-size:.8rem;font-weight:500;padding:.35rem .9rem;border-radius:9999px}
+
+  section{padding:4.5rem 0}
+  .section-alt{background:var(--alt)}
+  h2{font-size:2.4rem;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:2.4rem}
+
+  .card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:2.2rem;margin-bottom:1.6rem;box-shadow:var(--card-shadow)}
+  .card h3{font-size:1.35rem;font-weight:700;letter-spacing:-.015em}
+  .card .what{margin-top:.9rem;color:var(--gray5);font-size:.98rem;line-height:1.6}
+  .case{background:var(--alt);border-radius:8px;padding:1rem 1.2rem;margin-top:.9rem;font-size:.92rem;line-height:1.55;color:var(--gray5)}
+  .case b{color:var(--text);font-weight:600}
+  .imgph{background:var(--alt);border:1px dashed var(--gray3);border-radius:8px;height:150px;display:flex;align-items:center;justify-content:center;color:var(--gray3);font-size:.85rem;margin-top:1.3rem}
+  .metrics{display:flex;gap:2.5rem;margin-top:1.5rem;flex-wrap:wrap}
+  .metrics b{display:block;font-size:1.9rem;font-weight:700;letter-spacing:-.02em;color:var(--blue)}
+  .metrics span{font-size:.8rem;color:var(--gray3)}
+  .tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+  .tag{background:var(--badge-bg);color:var(--badge-tx);font-size:.75rem;font-weight:600;letter-spacing:.125px;padding:.28rem .8rem;border-radius:9999px}
+
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+  .edu-item{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.7rem;box-shadow:var(--card-shadow)}
+  .edu-item b{display:block;font-weight:600;margin-bottom:.4rem}
+  .edu-item span{font-size:.92rem;color:var(--gray5);line-height:1.55}
+
+  .contact-box{text-align:center;padding:1rem 0 2rem}
+  .contact-box h2{margin-bottom:1rem}
+  .contact-box p{color:var(--gray5);margin-bottom:2rem}
+  .btn{display:inline-block;padding:.75rem 1.6rem;border-radius:4px;font-weight:600;font-size:.98rem;margin:0 .4rem}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-primary:hover{background:var(--blue-active);text-decoration:none}
+  .btn-ghost{background:rgba(0,0,0,.05);color:var(--text)}
+  .btn-ghost:hover{background:rgba(0,0,0,.09);text-decoration:none}
+
+  footer{padding:2.5rem 0;color:var(--gray3);font-size:.82rem;border-top:1px solid var(--border);text-align:center}
+  @media(max-width:760px){h1{font-size:2.4rem}.hook{font-size:1.1rem}.edu-grid{grid-template-columns:1fr}.nav-links a:not(.nav-cta){display:none}}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-in">
+  <div class="logo">Сергей Малицкий</div>
+  <div class="nav-links"><a href="#exp">Опыт</a><a href="#projects">Проекты</a><a href="#edu">Образование</a><a class="nav-cta" href="https://t.me/SaMLLIiK">Написать в Telegram</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="hero">
+    <span class="badge">AI × Автобизнес</span>
+    <h1>AI-агенты вместо ручной работы</h1>
+    <p class="hook">Год назад я тратил <span class="num">3–4 часа в день</span> на ручную работу с объявлениями, заявками и контентом. Сейчас это делают AI-агенты, которых я настроил и написал сам.</p>
+    <p class="sub">8 лет в автобизнесе (500+ сделок лично, импорт из 5 стран) + год постройки AI-систем поверх этого опыта.</p>
+    <div class="stack"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">REST API</span><span class="chip">LLM</span><span class="chip">Docker</span></div>
+  </div>
+</div>
+
+<section class="section-alt" id="exp"><div class="wrap">
+  <h2>Опыт в автобизнесе</h2>
+  <div class="edu-grid">
+    <div class="edu-item"><b>Партнёрские проекты по импорту авто · 2024 — н.в.</b><span>Партнёр, менеджер клиентского цикла. Сопровождение сделок по импорту: подбор и просчёт авто, договоры, логистика, документы, выдача клиенту. Направления: США, Китай, Корея, Киргизия, Дубай, Грузия. Развитие Telegram-, VK- и YouTube-каналов: упаковка предложений, контент, обработка заявок из платного маркетинга.</span></div>
+    <div class="edu-item"><b>Сергей Автоподбор · 2020 — н.в.</b><span>Управляющий, менеджер заказов. Подбор автомобилей с пробегом по РФ: диагностика запроса, проверка вариантов, переговоры, сопровождение сделки. Выстраивание процессов: CRM, KPI, клиентский путь, партнёрские сценарии.</span></div>
+  </div>
+  <div class="stack" style="margin-top:1.8rem;justify-content:flex-start"><span class="chip">клиентский путь</span><span class="chip">переговоры и договоры</span><span class="chip">проверка авто</span><span class="chip">логистика и растаможка</span><span class="chip">экономика сделки</span><span class="chip">CRM / KPI</span><span class="chip">контент-воронки</span><span class="chip">аналитика спроса</span></div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Проекты</h2>
+
+  <div class="card">
+    <h3>Hermes Agent — личный AI-ассистент 24/7</h3>
+    <p class="what">Персональный AI-ассистент на собственном VPS, доступный из Telegram в любой момент. Ядро — open-source агентная платформа Hermes Agent, поверх которой написан собственный Telegram-роутер на Python: 30 модулей, тесты, автозапуск через systemd.</p>
+    <p class="what">Ассистент закрывает реальные личные и рабочие задачи: ведёт несколько профилей под разные роли (работа, финансы, учёба, автобизнес — у каждого своя «личность» и база знаний), понимает голосовые сообщения, принимает документы и фото как контекст, выполняет автономные задачи по расписанию — от мониторинга сервера до регулярных отчётов, — работает с git и управляет собственным сервером.</p>
+    <div class="case"><b>Кейс: доступ без хаоса.</b> Ботом пользуются несколько человек → построена система ролей (суперадмин/админ/пользователь) с одобрением новичков прямо из чата.</div>
+    <div class="case"><b>Кейс: файлы из AI в руки.</b> Агент создаёт отчёты и документы на сервере → маркер FILE: доставляет их в Telegram документами автоматически.</div>
+    <div class="case"><b>Кейс: живучесть 24/7.</b> Health-мониторинг, автоперезапуск и безопасный /restart из чата — ассистент восстанавливается сам, без доступа к серверу.</div>
+    <div class="imgph">[скриншот диалога с ботом]</div>
+    <div class="metrics">
+      <div><b>30</b><span>модулей</span></div>
+      <div><b>5</b><span>тест-сьютов</span></div>
+      <div><b>24/7</b><span>на VPS</span></div>
+    </div>
+    <div class="tags"><span class="tag">Python</span><span class="tag">aiogram</span><span class="tag">SQLite</span><span class="tag">systemd</span><span class="tag">LLM-агенты</span></div>
+  </div>
+
+  <div class="card">
+    <h3>AutoRadar — парсер авто-площадок</h3>
+    <p class="what">Собирает объявления с площадок Китая, Кореи, США и Грузии, из Telegram-каналов и с любых сайтов: цены, характеристики, комплектации, фотографии → единый формат, фильтры по маркам и моделям, выгрузка.</p>
+    <div class="case"><b>Кейс: любой источник — 1 формат.</b> У каждой площадки и канала своя структура данных → нормализация приводит всё к единой схеме. Источники подключаются модульно: новую площадку или канал можно добавить без переделки системы.</div>
+    <div class="case"><b>Кейс: от объявления к экономике сделки.</b> По собранным данным просчитывается стоимость машины под клиента — с учётом доставки, растаможки и подготовки. Вместо ручного просчёта каждого варианта — расчёт по готовым данным.</div>
+    <div class="case"><b>Кейс: фото без ручного скачивания.</b> Парсер сам выгружает фотографии автомобилей из объявлений — готовый материал для карточек, публикаций и показа клиенту.</div>
+    <div class="imgph">[скриншот: выдача / BMW-фильтр]</div>
+    <div class="tags"><span class="tag">Python</span><span class="tag">Playwright</span><span class="tag">Docker</span><span class="tag">PostgreSQL</span></div>
+  </div>
+
+  <div class="card">
+    <h3>Auto.ru Feed Pipeline — LLM-конвейер</h3>
+    <p class="what">LLM-цепочки превращают сырые данные парсера в готовые XML-фиды для автозагрузки Auto.ru и клиентский контент: описания, карточки, идеи для коротких видео и рекламных креативов.</p>
+    <div class="case"><b>Кейс: ноль ручного труда.</b> Раньше карточка объявления писалась руками → теперь конвейер сам генерирует описание, характеристики и фид.</div>
+    <div class="tags"><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">XML</span><span class="tag">Auto.ru</span></div>
+  </div>
+
+  <p style="color:var(--gray5);font-size:.95rem;margin-top:2rem">Помимо основных проектов: AI-first прототипы — сайт, мини-игра, автоматизации; личная база знаний в Obsidian (AI, промпты, бизнес-процессы, проекты); рабочий стек — VS Code + Codex/Copilot, OpenRouter, MCP, работа с VPS и деплой.</p>
+</div></section>
+
+<div class="wrap"><section id="edu">
+  <h2>Образование</h2>
+  <div class="edu-grid">
+    <div class="edu-item"><b>УрФУ · Магистратура</b><span>«Организация и управление наукоёмкими производствами» (2026). Проектная работа: развитие сервиса автоподбора — CRM, KPI, клиентский путь.</span></div>
+    <div class="edu-item"><b>УрФУ · Бакалавриат</b><span>«Инноватика / управление инновациями» (2024). Диплом в формате «стартап как диплом»: автоматизированный сервис подбора автомобилей с пробегом.</span></div>
+    <div class="edu-item"><b>Мини MBA</b><span>Центр бизнес-образования УрФУ: финансовый менеджмент, бухучёт, управление персоналом.</span></div>
+    <div class="edu-item"><b>Стипендиат</b><span>Программа AI в автобизнесе · Английский B1–B2.</span></div>
+  </div>
+</section></div>
+
+<section class="section-alt" id="contact"><div class="wrap contact-box">
+  <h2>Контакты</h2>
+  <p>Открыт к проектам на стыке AI и автобизнеса</p>
+  <a class="btn btn-primary" href="https://t.me/SaMLLIiK">Написать в Telegram</a>
+  <a class="btn btn-ghost" href="https://github.com/leonardschwarz269">GitHub</a>
+</div></section>
+
+<footer>© 2026 Сергей Малицкий · Сайт собран AI-агентом под моим руководством</footer>
+
+</body>
+</html>
