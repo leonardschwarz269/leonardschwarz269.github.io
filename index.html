@@ -59,6 +59,17 @@
   .edu-item b{display:block;font-weight:600;margin-bottom:.4rem}
   .edu-item span{font-size:.92rem;color:var(--gray5);line-height:1.55}
 
+  .xedu{margin-top:2.4rem}
+  .xedu h3{font-size:1.15rem;font-weight:700;letter-spacing:-.01em;margin-bottom:1rem}
+  .xedu-list{background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--card-shadow);overflow:hidden}
+  .xedu-row{display:flex;align-items:baseline;gap:1rem;padding:.85rem 1.4rem;border-bottom:1px solid var(--border);font-size:.93rem}
+  .xedu-row:last-child{border-bottom:none}
+  .xedu-row b{font-weight:600;flex:1}
+  .xedu-row .org{color:var(--gray5);white-space:nowrap}
+  .xedu-row .yr{color:var(--gray3);font-variant-numeric:tabular-nums;width:3.2em;text-align:right}
+  .xedu-note{margin-top:1.1rem;font-size:.9rem;color:var(--gray5)}
+  @media(max-width:760px){.xedu-row{flex-wrap:wrap;row-gap:.15rem}.xedu-row b{flex:1 1 100%}.xedu-row .yr{width:auto}}
+
   .contact-box{text-align:center;padding:1rem 0 2rem}
   .contact-box h2{margin-bottom:1rem}
   .contact-box p{color:var(--gray5);margin-bottom:2rem}
@@ -91,11 +102,15 @@
 
 <section class="section-alt" id="exp"><div class="wrap">
   <h2>Опыт в автобизнесе</h2>
-  <div class="edu-grid">
-    <div class="edu-item"><b>Партнёрские проекты по импорту авто · 2024 — н.в.</b><span>Партнёр, менеджер клиентского цикла. Сопровождение сделок по импорту: подбор и просчёт авто, договоры, логистика, документы, выдача клиенту. Направления: США, Китай, Корея, Киргизия, Дубай, Грузия. Развитие Telegram-, VK- и YouTube-каналов: упаковка предложений, контент, обработка заявок из платного маркетинга.</span></div>
-    <div class="edu-item"><b>Сергей Автоподбор · 2020 — н.в.</b><span>Управляющий, менеджер заказов. Подбор автомобилей с пробегом по РФ: диагностика запроса, проверка вариантов, переговоры, сопровождение сделки. Выстраивание процессов: CRM, KPI, клиентский путь, партнёрские сценарии.</span></div>
+  <div class="card">
+    <h3>Сергей Автоподбор — подбор и импорт автомобилей · 2020 — н.в.</h3>
+    <p class="what">Управляющий, партнёр. Прошёл путь от менеджера заказов до управляющего: выстраивание процессов — CRM, KPI, клиентский путь, партнёрские сценарии. Два направления одного дела:</p>
+    <div class="edu-grid" style="margin-top:1.3rem">
+      <div class="edu-item"><b>Подбор по РФ</b><span>Подбор автомобилей с пробегом: диагностика запроса, проверка вариантов, переговоры, сопровождение сделки до передачи ключей.</span></div>
+      <div class="edu-item"><b>Импорт из 6 стран</b><span>США, Китай, Корея, Киргизия, Дубай, Грузия. Полный цикл сделки: подбор и просчёт, договоры, логистика, документы, выдача клиенту. Развитие Telegram-, VK- и YouTube-каналов: упаковка предложений, контент, обработка заявок из платного маркетинга.</span></div>
+    </div>
+    <div class="tags"><span class="tag">клиентский путь</span><span class="tag">переговоры и договоры</span><span class="tag">проверка авто</span><span class="tag">логистика и растаможка</span><span class="tag">экономика сделки</span><span class="tag">CRM / KPI</span><span class="tag">контент-воронки</span><span class="tag">аналитика спроса</span></div>
   </div>
-  <div class="stack" style="margin-top:1.8rem;justify-content:flex-start"><span class="chip">клиентский путь</span><span class="chip">переговоры и договоры</span><span class="chip">проверка авто</span><span class="chip">логистика и растаможка</span><span class="chip">экономика сделки</span><span class="chip">CRM / KPI</span><span class="chip">контент-воронки</span><span class="chip">аналитика спроса</span></div>
 </div></section>
 
 <section id="projects"><div class="wrap">
@@ -110,8 +125,9 @@
     <div class="case"><b>Кейс: живучесть 24/7.</b> Health-мониторинг, автоперезапуск и безопасный /restart из чата — ассистент восстанавливается сам, без доступа к серверу.</div>
     <div class="imgph">[скриншот диалога с ботом]</div>
     <div class="metrics">
-      <div><b>30</b><span>модулей</span></div>
-      <div><b>5</b><span>тест-сьютов</span></div>
+      <div><b>6</b><span>профилей-ролей</span></div>
+      <div><b>~25</b><span>задач в день</span></div>
+      <div><b>2 000+</b><span>действий агента в неделю</span></div>
       <div><b>24/7</b><span>на VPS</span></div>
     </div>
     <div class="tags"><span class="tag">Python</span><span class="tag">aiogram</span><span class="tag">SQLite</span><span class="tag">systemd</span><span class="tag">LLM-агенты</span></div>
@@ -142,8 +158,20 @@
   <div class="edu-grid">
     <div class="edu-item"><b>УрФУ · Магистратура</b><span>«Организация и управление наукоёмкими производствами» (2026). Проектная работа: развитие сервиса автоподбора — CRM, KPI, клиентский путь.</span></div>
     <div class="edu-item"><b>УрФУ · Бакалавриат</b><span>«Инноватика / управление инновациями» (2024). Диплом в формате «стартап как диплом»: автоматизированный сервис подбора автомобилей с пробегом.</span></div>
-    <div class="edu-item"><b>Мини MBA</b><span>Центр бизнес-образования УрФУ: финансовый менеджмент, бухучёт, управление персоналом.</span></div>
-    <div class="edu-item"><b>Стипендиат</b><span>Программа AI в автобизнесе · Английский B1–B2.</span></div>
+  </div>
+  <div class="xedu">
+    <h3>Дополнительное образование</h3>
+    <div class="xedu-list">
+      <div class="xedu-row"><b>Мини MBA: финансовый менеджмент, бухучёт, управление персоналом</b><span class="org">Центр бизнес-образования УрФУ</span><span class="yr"></span></div>
+      <div class="xedu-row"><b>Основы технологического предпринимательства</b><span class="org">УрФУ</span><span class="yr">2024</span></div>
+      <div class="xedu-row"><b>Проджект-менеджмент 101</b><span class="org">PMCLUB</span><span class="yr">2024</span></div>
+      <div class="xedu-row"><b>Управление интеллектуальной собственностью</b><span class="org">Открытое образование</span><span class="yr">2023</span></div>
+      <div class="xedu-row"><b>Нейронные сети и компьютерное зрение</b><span class="org">Stepik</span><span class="yr">2023</span></div>
+      <div class="xedu-row"><b>Развитие высокотехнологичного бизнеса и трансфер технологий</b><span class="org">УрФУ</span><span class="yr">2023</span></div>
+      <div class="xedu-row"><b>Интерактивный тренажёр по SQL</b><span class="org">Stepik</span><span class="yr">2023</span></div>
+      <div class="xedu-row"><b>Основы проектной деятельности</b><span class="org">Открытое образование</span><span class="yr">2021</span></div>
+    </div>
+    <p class="xedu-note">Стипендиат программы «AI в автобизнесе» · Английский B1–B2</p>
   </div>
 </section></div>
 
