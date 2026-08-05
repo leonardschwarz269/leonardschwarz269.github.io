@@ -48,6 +48,13 @@
   .case{background:var(--alt);border-radius:8px;padding:1rem 1.2rem;margin-top:.9rem;font-size:.92rem;line-height:1.55;color:var(--gray5)}
   .case b{color:var(--text);font-weight:600}
   .imgph{background:var(--alt);border:1px dashed var(--gray3);border-radius:8px;height:150px;display:flex;align-items:center;justify-content:center;color:var(--gray3);font-size:.85rem;margin-top:1.3rem}
+  .shots{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.3rem}
+  .shots img{width:100%;height:auto;border:1px solid var(--border);border-radius:8px;display:block}
+  .shots figcaption{font-size:.8rem;color:var(--gray3);margin-top:.45rem;text-align:center}
+  .shots figure{margin:0}
+  .shot-solo{margin-top:1.3rem;text-align:center}
+  .shot-solo img{max-width:420px;width:100%;height:auto;border:1px solid var(--border);border-radius:8px}
+  .shot-solo figcaption{font-size:.8rem;color:var(--gray3);margin-top:.45rem}
   .metrics{display:flex;gap:2.5rem;margin-top:1.5rem;flex-wrap:wrap}
   .metrics b{display:block;font-size:1.9rem;font-weight:700;letter-spacing:-.02em;color:var(--blue)}
   .metrics span{font-size:.8rem;color:var(--gray3)}
@@ -80,7 +87,7 @@
   .btn-ghost:hover{background:rgba(0,0,0,.09);text-decoration:none}
 
   footer{padding:2.5rem 0;color:var(--gray3);font-size:.82rem;border-top:1px solid var(--border);text-align:center}
-  @media(max-width:760px){h1{font-size:2.4rem}.hook{font-size:1.1rem}.edu-grid{grid-template-columns:1fr}.nav-links a:not(.nav-cta){display:none}}
+  @media(max-width:760px){h1{font-size:2.4rem}.hook{font-size:1.1rem}.edu-grid{grid-template-columns:1fr}.shots{grid-template-columns:1fr}.nav-links a:not(.nav-cta){display:none}}
 </style>
 </head>
 <body>
@@ -103,7 +110,7 @@
 <section class="section-alt" id="exp"><div class="wrap">
   <h2>Опыт в автобизнесе</h2>
   <div class="card">
-    <h3>Сергей Автоподбор — подбор и импорт автомобилей · 2020 — н.в.</h3>
+    <h3>Автоподбор вместе с Сергеем | SM_Podbor — подбор и импорт автомобилей · 2020 — н.в.</h3>
     <p class="what">Управляющий, партнёр. Прошёл путь от менеджера заказов до управляющего: выстраивание процессов — CRM, KPI, клиентский путь, партнёрские сценарии. Два направления одного дела:</p>
     <div class="edu-grid" style="margin-top:1.3rem">
       <div class="edu-item"><b>Подбор по РФ</b><span>Подбор автомобилей с пробегом: диагностика запроса, проверка вариантов, переговоры, сопровождение сделки до передачи ключей.</span></div>
@@ -123,7 +130,7 @@
     <div class="case"><b>Кейс: доступ без хаоса.</b> Ботом пользуются несколько человек → построена система ролей (суперадмин/админ/пользователь) с одобрением новичков прямо из чата.</div>
     <div class="case"><b>Кейс: файлы из AI в руки.</b> Агент создаёт отчёты и документы на сервере → маркер FILE: доставляет их в Telegram документами автоматически.</div>
     <div class="case"><b>Кейс: живучесть 24/7.</b> Health-мониторинг, автоперезапуск и безопасный /restart из чата — ассистент восстанавливается сам, без доступа к серверу.</div>
-    <div class="imgph">[скриншот диалога с ботом]</div>
+    <figure class="shot-solo"><img src="assets/hermes-agent-chat-1.jpg" alt="Hermes Agent: диалог с ботом в Telegram" loading="lazy"><figcaption>Диалог с ассистентом в Telegram</figcaption></figure>
     <div class="metrics">
       <div><b>6</b><span>профилей-ролей</span></div>
       <div><b>~25</b><span>задач в день</span></div>
@@ -135,11 +142,23 @@
 
   <div class="card">
     <h3>AutoRadar — парсер авто-площадок</h3>
+    <img src="assets/autoradar-cover.jpg" alt="AutoRadar — обложка проекта" loading="lazy" style="width:100%;height:auto;border-radius:8px;margin-top:1.1rem;border:1px solid var(--border)">
     <p class="what">Собирает объявления с площадок Китая, Кореи, США и Грузии, из Telegram-каналов и с любых сайтов: цены, характеристики, комплектации, фотографии → единый формат, фильтры по маркам и моделям, выгрузка.</p>
     <div class="case"><b>Кейс: любой источник — 1 формат.</b> У каждой площадки и канала своя структура данных → нормализация приводит всё к единой схеме. Источники подключаются модульно: новую площадку или канал можно добавить без переделки системы.</div>
     <div class="case"><b>Кейс: от объявления к экономике сделки.</b> По собранным данным просчитывается стоимость машины под клиента — с учётом доставки, растаможки и подготовки. Вместо ручного просчёта каждого варианта — расчёт по готовым данным.</div>
     <div class="case"><b>Кейс: фото без ручного скачивания.</b> Парсер сам выгружает фотографии автомобилей из объявлений — готовый материал для карточек, публикаций и показа клиенту.</div>
-    <div class="imgph">[скриншот: выдача / BMW-фильтр]</div>
+    <div class="shots">
+      <figure><img src="assets/autoradar-feed.png" alt="AutoRadar: лента собранных объявлений" loading="lazy"><figcaption>Лента собранных объявлений</figcaption></figure>
+      <figure><img src="assets/autoradar-card.png" alt="AutoRadar: карточка автомобиля с характеристиками" loading="lazy"><figcaption>Карточка автомобиля</figcaption></figure>
+      <figure><img src="assets/autoradar-filter.png" alt="AutoRadar: фильтры по маркам и моделям" loading="lazy"><figcaption>Фильтры по маркам и моделям</figcaption></figure>
+      <figure><img src="assets/autoradar-calc.jpg" alt="AutoRadar: просчёт стоимости под клиента" loading="lazy"><figcaption>Просчёт стоимости</figcaption></figure>
+    </div>
+    <div class="metrics">
+      <div><b>4</b><span>страны-источника</span></div>
+      <div><b>40+</b><span>площадок и TG-каналов</span></div>
+      <div><b>∞</b><span>объявлений — объём под ваш запрос</span></div>
+      <div><b>минуты</b><span>на просчёт вместо часов</span></div>
+    </div>
     <div class="tags"><span class="tag">Python</span><span class="tag">Playwright</span><span class="tag">Docker</span><span class="tag">PostgreSQL</span></div>
   </div>
 
@@ -147,6 +166,11 @@
     <h3>Auto.ru Feed Pipeline — LLM-конвейер</h3>
     <p class="what">LLM-цепочки превращают сырые данные парсера в готовые XML-фиды для автозагрузки Auto.ru и клиентский контент: описания, карточки, идеи для коротких видео и рекламных креативов.</p>
     <div class="case"><b>Кейс: ноль ручного труда.</b> Раньше карточка объявления писалась руками → теперь конвейер сам генерирует описание, характеристики и фид.</div>
+    <div class="metrics">
+      <div><b>0 ч</b><span>ручного обновления объявлений</span></div>
+      <div><b>100%</b><span>карточек — автогенерация</span></div>
+      <div><b>минуты</b><span>от данных парсера до фида</span></div>
+    </div>
     <div class="tags"><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">XML</span><span class="tag">Auto.ru</span></div>
   </div>
 
@@ -162,7 +186,7 @@
   <div class="xedu">
     <h3>Дополнительное образование</h3>
     <div class="xedu-list">
-      <div class="xedu-row"><b>Мини MBA: финансовый менеджмент, бухучёт, управление персоналом</b><span class="org">Центр бизнес-образования УрФУ</span><span class="yr"></span></div>
+      <div class="xedu-row"><b>Мини MBA: финансовый менеджмент, бухучёт, управление персоналом</b><span class="org">Центр бизнес-образования УрФУ</span><span class="yr">2025</span></div>
       <div class="xedu-row"><b>Основы технологического предпринимательства</b><span class="org">УрФУ</span><span class="yr">2024</span></div>
       <div class="xedu-row"><b>Проджект-менеджмент 101</b><span class="org">PMCLUB</span><span class="yr">2024</span></div>
       <div class="xedu-row"><b>Управление интеллектуальной собственностью</b><span class="org">Открытое образование</span><span class="yr">2023</span></div>
