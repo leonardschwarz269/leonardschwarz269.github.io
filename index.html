@@ -55,6 +55,12 @@
   .shot-solo{margin-top:1.3rem;text-align:center}
   .shot-solo img{max-width:420px;width:100%;height:auto;border:1px solid var(--border);border-radius:8px}
   .shot-solo figcaption{font-size:.8rem;color:var(--gray3);margin-top:.45rem}
+  .shots-block{margin:1.3rem 0 0}
+  .shots-block figcaption{font-size:.8rem;color:var(--gray3);margin-top:.45rem;text-align:center}
+  .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;align-items:start}
+  .feature-grid img{width:100%;height:auto;border:1px solid var(--border);border-radius:8px;display:block}
+  .profile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;align-items:start}
+  .profile-grid img{width:100%;height:auto;border:1px solid var(--border);border-radius:8px;display:block}
   .metrics{display:flex;gap:2.5rem;margin-top:1.5rem;flex-wrap:wrap}
   .metrics b{display:block;font-size:1.9rem;font-weight:700;letter-spacing:-.02em;color:var(--blue)}
   .metrics span{font-size:.8rem;color:var(--gray3)}
@@ -87,7 +93,7 @@
   .btn-ghost:hover{background:rgba(0,0,0,.09);text-decoration:none}
 
   footer{padding:2.5rem 0;color:var(--gray3);font-size:.82rem;border-top:1px solid var(--border);text-align:center}
-  @media(max-width:760px){h1{font-size:2.4rem}.hook{font-size:1.1rem}.edu-grid{grid-template-columns:1fr}.shots{grid-template-columns:1fr}.nav-links a:not(.nav-cta){display:none}}
+  @media(max-width:760px){h1{font-size:2.4rem}.hook{font-size:1.1rem}.edu-grid{grid-template-columns:1fr}.shots{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr 1fr}.profile-grid{grid-template-columns:1fr}.nav-links a:not(.nav-cta){display:none}}
 </style>
 </head>
 <body>
@@ -132,17 +138,26 @@
     <div class="case"><b>Кейс: файлы из AI в руки.</b> Агент создаёт отчёты и документы на сервере → маркер FILE: доставляет их в Telegram документами автоматически.</div>
     <div class="case"><b>Кейс: живучесть 24/7.</b> Health-мониторинг, автоперезапуск и безопасный /restart из чата — ассистент восстанавливается сам, без доступа к серверу.</div>
     <figure class="shot-solo"><img src="assets/hermes-agent-chat-1.jpg" alt="Hermes Agent: диалог с ассистентом и расшифровка голосового" loading="lazy"><figcaption>Диалог с ассистентом и расшифровка голосового</figcaption></figure>
+    <figure class="shots-block">
+      <div class="feature-grid">
+        <img src="assets/hermes-agent-features-1.jpg" alt="Hermes Agent: возможности ассистента — 1" loading="lazy">
+        <img src="assets/hermes-agent-features-2.jpg" alt="Hermes Agent: возможности ассистента — 2" loading="lazy">
+        <img src="assets/hermes-agent-features-3.jpg" alt="Hermes Agent: возможности ассистента — 3" loading="lazy">
+        <img src="assets/hermes-agent-features-4.jpg" alt="Hermes Agent: возможности ассистента — 4" loading="lazy">
+      </div>
+      <figcaption>Возможности ассистента</figcaption>
+    </figure>
+    <figure class="shots-block">
+      <div class="profile-grid">
+        <img src="assets/hermes-agent-profile-1.jpg" alt="Hermes Agent: работа в профиле — 1" loading="lazy">
+        <img src="assets/hermes-agent-profile-2.jpg" alt="Hermes Agent: работа в профиле — 2" loading="lazy">
+        <img src="assets/hermes-agent-profile-3.jpg" alt="Hermes Agent: работа в профиле — 3" loading="lazy">
+      </div>
+      <figcaption>Работа в разных профилях</figcaption>
+    </figure>
     <div class="shots">
-      <figure><img src="assets/hermes-agent-chat-3.jpg" alt="Hermes Agent: возможности ассистента" loading="lazy"><figcaption>Возможности ассистента</figcaption></figure>
-      <figure>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
-          <img src="assets/hermes-agent-profile-finance.jpg" alt="Hermes Agent: профиль Финансы" loading="lazy" style="border:1px solid var(--border);border-radius:8px;width:100%;height:auto">
-          <img src="assets/hermes-agent-profile-mentor.jpg" alt="Hermes Agent: профиль Ментор" loading="lazy" style="border:1px solid var(--border);border-radius:8px;width:100%;height:auto">
-        </div>
-        <figcaption>Работа в разных профилях</figcaption>
-      </figure>
       <figure><img src="assets/hermes-agent-chat-4.jpg" alt="Hermes Agent: отчёт ассистента" loading="lazy"><figcaption>Отчёт ассистента</figcaption></figure>
-      <figure><img src="assets/hermes-agent-html.jpg" alt="Hermes Agent: доставка файлов документами" loading="lazy"><figcaption>Доставка файлов документами</figcaption></figure>
+      <figure><img src="assets/hermes-agent-file-delivery.jpg" alt="Hermes Agent: доставка файлов документами" loading="lazy"><figcaption>Доставка файлов документами</figcaption></figure>
       <figure><img src="assets/hermes-agent-chat-2.jpg" alt="Hermes Agent: автономная задача по расписанию" loading="lazy"><figcaption>Автономная задача по расписанию</figcaption></figure>
       <figure><img src="assets/hermes-agent-chat-5.jpg" alt="Hermes Agent: ответ ассистента" loading="lazy"><figcaption>Ответ ассистента</figcaption></figure>
     </div>
