@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sergey Malitsky — AI Automation for the Automotive Business</title>
+<link rel="alternate" hreflang="ru" href="https://leonardschwarz269.github.io/">
+<link rel="alternate" hreflang="en" href="https://leonardschwarz269.github.io/en/">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --alt:#f6f5f4; --text:rgba(0,0,0,.95);
+    --gray5:#615d59; --gray3:#a39e98; --dark:#31302e;
+    --blue:#0075de; --blue-active:#005bab;
+    --badge-bg:#f2f9ff; --badge-tx:#097fe8;
+    --border:rgba(0,0,0,.1);
+    --card-shadow:rgba(0,0,0,.04) 0 4px 18px, rgba(0,0,0,.027) 0 2px 7.8px, rgba(0,0,0,.02) 0 .8px 2.9px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;font-size:16px}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+
+  nav{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);z-index:10}
+  .nav-in{max-width:1100px;margin:0 auto;padding:.85rem 1.5rem;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-weight:700;font-size:1rem;letter-spacing:-.01em}
+  .nav-links{display:flex;gap:1.5rem;font-size:.94rem;font-weight:500;align-items:center}
+  .nav-links a{color:var(--text)}
+  .nav-links a:hover{color:var(--blue);text-decoration:none}
+  .nav-cta{background:var(--blue);color:#fff !important;padding:.45rem 1rem;border-radius:4px;font-weight:600;font-size:.9rem}
+  .nav-cta:hover{background:var(--blue-active);text-decoration:none}
+  .lang-switch{color:var(--gray5) !important;font-weight:600;font-size:.85rem;letter-spacing:.02em}
+  .lang-switch:hover{color:var(--blue) !important}
+
+  .hero{padding:6.5rem 0 5rem;text-align:center;max-width:820px;margin:0 auto}
+  .badge{display:inline-block;background:var(--badge-bg);color:var(--badge-tx);font-size:.75rem;font-weight:600;letter-spacing:.125px;padding:.3rem .9rem;border-radius:9999px;margin-bottom:1.6rem}
+  h1{font-size:3.6rem;font-weight:700;line-height:1.04;letter-spacing:-.033em}
+  .hook{font-size:1.3rem;font-weight:500;line-height:1.45;margin-top:1.8rem;color:var(--text)}
+  .hook .num{color:var(--blue);font-weight:700}
+  .sub{margin-top:1.2rem;color:var(--gray5);font-size:1.05rem}
+  .stack{margin-top:2rem;display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  .chip{background:var(--alt);border:1px solid var(--border);color:var(--gray5);font-size:.8rem;font-weight:500;padding:.35rem .9rem;border-radius:9999px}
+
+  section{padding:4.5rem 0}
+  .section-alt{background:var(--alt)}
+  h2{font-size:2.4rem;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:2.4rem}
+
+  .card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:2.2rem;margin-bottom:1.6rem;box-shadow:var(--card-shadow)}
+  .card h3{font-size:1.35rem;font-weight:700;letter-spacing:-.015em}
+  .card .what{margin-top:.9rem;color:var(--gray5);font-size:.98rem;line-height:1.6}
+  .case{background:var(--alt);border-radius:8px;padding:1rem 1.2rem;margin-top:.9rem;font-size:.92rem;line-height:1.55;color:var(--gray5)}
+  .case b{color:var(--text);font-weight:600}
+  .imgph{background:var(--alt);border:1px dashed var(--gray3);border-radius:8px;height:150px;display:flex;align-items:center;justify-content:center;color:var(--gray3);font-size:.85rem;margin-top:1.3rem}
+  .shots{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.3rem}
+  .shots img{width:100%;height:auto;border:1px solid var(--border);border-radius:8px;display:block}
+  .shots figcaption{font-size:.8rem;color:var(--gray3);margin-top:.45rem;text-align:center}
+  .shots figure{margin:0}
+  .shot-solo{margin-top:1.3rem;text-align:center}
+  .shot-solo img{max-width:420px;width:100%;height:auto;border:1px solid var(--border);border-radius:8px}
+  .shot-solo figcaption{font-size:.8rem;color:var(--gray3);margin-top:.45rem}
+  .shots-block{margin:1.3rem 0 0}
+  .shots-block figcaption{font-size:.8rem;color:var(--gray3);margin-top:.45rem;text-align:center}
+  .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;align-items:start}
+  .feature-grid img{width:100%;height:auto;border:1px solid var(--border);border-radius:8px;display:block}
+  .profile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;align-items:start}
+  .profile-grid img{width:100%;height:auto;border:1px solid var(--border);border-radius:8px;display:block}
+  .metrics{display:flex;gap:2.5rem;margin-top:1.5rem;flex-wrap:wrap}
+  .metrics b{display:block;font-size:1.9rem;font-weight:700;letter-spacing:-.02em;color:var(--blue)}
+  .metrics span{font-size:.8rem;color:var(--gray3)}
+  .tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+  .tag{background:var(--badge-bg);color:var(--badge-tx);font-size:.75rem;font-weight:600;letter-spacing:.125px;padding:.28rem .8rem;border-radius:9999px}
+
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+  .edu-item{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.7rem;box-shadow:var(--card-shadow)}
+  .edu-item b{display:block;font-weight:600;margin-bottom:.4rem}
+  .edu-item span{font-size:.92rem;color:var(--gray5);line-height:1.55}
+
+  .xedu{margin-top:2.4rem}
+  .xedu h3{font-size:1.15rem;font-weight:700;letter-spacing:-.01em;margin-bottom:1rem}
+  .xedu-list{background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--card-shadow);overflow:hidden}
+  .xedu-row{display:flex;align-items:baseline;gap:1rem;padding:.85rem 1.4rem;border-bottom:1px solid var(--border);font-size:.93rem}
+  .xedu-row:last-child{border-bottom:none}
+  .xedu-row b{font-weight:600;flex:1}
+  .xedu-row .org{color:var(--gray5);white-space:nowrap}
+  .xedu-row .yr{color:var(--gray3);font-variant-numeric:tabular-nums;width:3.2em;text-align:right}
+  .xedu-note{margin-top:1.1rem;font-size:.9rem;color:var(--gray5)}
+  @media(max-width:760px){.xedu-row{flex-wrap:wrap;row-gap:.15rem}.xedu-row b{flex:1 1 100%}.xedu-row .yr{width:auto}}
+
+  .contact-box{text-align:center;padding:1rem 0 2rem}
+  .contact-box h2{margin-bottom:1rem}
+  .contact-box p{color:var(--gray5);margin-bottom:2rem}
+  .btn{display:inline-block;padding:.75rem 1.6rem;border-radius:4px;font-weight:600;font-size:.98rem;margin:0 .4rem}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-primary:hover{background:var(--blue-active);text-decoration:none}
+  .btn-ghost{background:rgba(0,0,0,.05);color:var(--text)}
+  .btn-ghost:hover{background:rgba(0,0,0,.09);text-decoration:none}
+
+  footer{padding:2.5rem 0;color:var(--gray3);font-size:.82rem;border-top:1px solid var(--border);text-align:center}
+  @media(max-width:760px){h1{font-size:2.4rem}.hook{font-size:1.1rem}.edu-grid{grid-template-columns:1fr}.shots{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr 1fr}.profile-grid{grid-template-columns:1fr}.nav-links a:not(.nav-cta):not(.lang-switch){display:none}}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-in">
+  <div class="logo">Sergey Malitsky</div>
+  <div class="nav-links"><a href="#exp">Experience</a><a href="#projects">Projects</a><a href="#edu">Education</a><a class="lang-switch" href="/" title="Русская версия">RU</a><a class="nav-cta" href="https://t.me/SaMLLIiK">Message on Telegram</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="hero">
+    <span class="badge">AI × Automotive</span>
+    <h1>AI agents instead of manual work</h1>
+    <p class="hook">A year ago I was spending <span class="num">3–4 hours a day</span> on manual work with car listings, client requests, and content. Today that work is done by AI agents I configured and built myself. And it goes beyond business: one request is enough for my personal AI assistant to pull up any of my data, analyze my finances, sort through my notes, and build statistics and charts.</p>
+    <p class="sub">8 years in the automotive business (500+ deals closed personally, imports from 5 countries) + a year of building AI systems on top of that experience.</p>
+    <div class="stack"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">REST API</span><span class="chip">LLM</span><span class="chip">Docker</span></div>
+  </div>
+</div>
+
+<section class="section-alt" id="exp"><div class="wrap">
+  <h2>Automotive business experience</h2>
+  <div class="card">
+    <h3>Car Sourcing with Sergey | SM_Podbor — used-car sourcing and import · 2020 — present</h3>
+    <p class="what">Managing partner. Worked my way up from order manager to head of operations: building processes — CRM, KPIs, customer journey, partner workflows. Two branches of one business:</p>
+    <div class="edu-grid" style="margin-top:1.3rem">
+      <div class="edu-item"><b>Sourcing within Russia</b><span>Used-car sourcing: qualifying the request, vetting candidate cars, negotiations, guiding the deal all the way to key handover.</span></div>
+      <div class="edu-item"><b>Import from 6 countries</b><span>USA, China, Korea, Kyrgyzstan, Dubai, Georgia. Full deal cycle: sourcing and cost calculation, contracts, logistics, paperwork, handover to the client. Growing Telegram, VK, and YouTube channels: packaging offers, content, handling leads from paid marketing.</span></div>
+    </div>
+    <div class="tags"><span class="tag">customer journey</span><span class="tag">negotiations &amp; contracts</span><span class="tag">vehicle inspection</span><span class="tag">logistics &amp; customs clearance</span><span class="tag">deal economics</span><span class="tag">CRM / KPI</span><span class="tag">content funnels</span><span class="tag">demand analytics</span></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+
+  <div class="card">
+    <h3>Hermes Agent — a personal AI assistant, 24/7</h3>
+    <img src="/assets/hermes-agent-cover.jpg" alt="Hermes Agent — project cover" loading="lazy" style="width:100%;height:auto;border-radius:8px;margin-top:1.1rem;border:1px solid var(--border)">
+    <p class="what">A personal AI assistant running on my own VPS, available from Telegram at any moment. The core is Hermes Agent, an open-source agentic platform, with a custom Telegram router written on top in Python: 30 modules, tests, auto-start via systemd.</p>
+    <p class="what">The assistant handles real personal and work tasks: it runs several profiles for different roles (work, finance, studies, auto business — each with its own personality and knowledge base), understands voice messages, accepts documents and photos as context, runs autonomous scheduled tasks — from server monitoring to recurring reports — works with git, and manages its own server.</p>
+    <div class="case"><b>Case: access without chaos.</b> Several people use the bot → a role system (superadmin/admin/user) with newcomer approval right from the chat.</div>
+    <div class="case"><b>Case: files from AI straight into your hands.</b> The agent creates reports and documents on the server → a FILE: marker automatically delivers them to Telegram as documents.</div>
+    <div class="case"><b>Case: 24/7 resilience.</b> Health monitoring, auto-restart, and a safe /restart from the chat — the assistant recovers on its own, no server access needed.</div>
+    <figure class="shot-solo"><img src="/assets/hermes-agent-chat-1.jpg" alt="Hermes Agent: a chat with the assistant and a voice message transcription" loading="lazy"><figcaption>A chat with the assistant and a voice message transcription</figcaption></figure>
+    <figure class="shots-block">
+      <div class="feature-grid">
+        <img src="/assets/hermes-agent-features-1.jpg" alt="Hermes Agent: assistant capabilities — 1" loading="lazy">
+        <img src="/assets/hermes-agent-features-2.jpg" alt="Hermes Agent: assistant capabilities — 2" loading="lazy">
+        <img src="/assets/hermes-agent-features-3.jpg" alt="Hermes Agent: assistant capabilities — 3" loading="lazy">
+        <img src="/assets/hermes-agent-features-4.jpg" alt="Hermes Agent: assistant capabilities — 4" loading="lazy">
+      </div>
+      <figcaption>Assistant capabilities</figcaption>
+    </figure>
+    <figure class="shots-block">
+      <div class="profile-grid">
+        <img src="/assets/hermes-agent-profile-1.jpg" alt="Hermes Agent: working in a profile — 1" loading="lazy">
+        <img src="/assets/hermes-agent-profile-2.jpg" alt="Hermes Agent: working in a profile — 2" loading="lazy">
+        <img src="/assets/hermes-agent-profile-3.jpg" alt="Hermes Agent: working in a profile — 3" loading="lazy">
+      </div>
+      <figcaption>Working across different profiles</figcaption>
+    </figure>
+    <figure class="shots-block">
+      <img src="/assets/hermes-agent-file-delivery.jpg" alt="Hermes Agent: file delivery as documents" loading="lazy" style="width:100%;height:auto;border:1px solid var(--border);border-radius:8px;display:block">
+      <figcaption>File delivery as documents</figcaption>
+    </figure>
+    <div class="metrics">
+      <div><b>6</b><span>role profiles</span></div>
+      <div><b>~25</b><span>tasks per day</span></div>
+      <div><b>2,000+</b><span>agent actions per week</span></div>
+      <div><b>24/7</b><span>on a VPS</span></div>
+    </div>
+    <div class="tags"><span class="tag">Python</span><span class="tag">aiogram</span><span class="tag">SQLite</span><span class="tag">systemd</span><span class="tag">LLM agents</span></div>
+  </div>
+
+  <div class="card">
+    <h3>AutoRadar — an AI assistant for the auto business</h3>
+    <img src="/assets/autoradar-cover.jpg" alt="AutoRadar — project cover" loading="lazy" style="width:100%;height:auto;border-radius:8px;margin-top:1.1rem;border:1px solid var(--border)">
+    <p class="what">Not just a scraper — a professional's personal assistant: it collects car listings from marketplaces in China, Korea, the USA, and Georgia, from Telegram channels, and from any website — prices, specs, trim levels, photos → a single unified format, make/model filters, export. And it answers questions about any car like an expert.</p>
+    <div class="case"><b>Case: any source — one format.</b> Every marketplace and channel has its own data structure → normalization brings everything to a single schema. Sources plug in modularly: a new marketplace or channel can be added without reworking the system.</div>
+    <div class="case"><b>Case: from a listing to deal economics.</b> The collected data feeds a cost calculation tailored to the client — including delivery, customs clearance, and reconditioning. Instead of manually pricing every option — a calculation built on ready data.</div>
+    <div class="case"><b>Case: photos without manual downloading.</b> The scraper pulls car photos from listings by itself — ready-made material for listing cards, posts, and client presentations.</div>
+    <div class="case"><b>Case: an expert friend on call.</b> Any question about a car — the model's weak points, what to check during an inspection, comparing options — answered by the latest and fastest LLMs right in the bot. It doesn't just collect listings, it helps make decisions.</div>
+    <figure class="shots-block">
+      <div class="profile-grid">
+        <img src="/assets/autoradar-post-1.png" alt="AutoRadar: sample post with a car" loading="lazy">
+        <img src="/assets/autoradar-post-2.png" alt="AutoRadar: sample post with a car" loading="lazy">
+        <img src="/assets/autoradar-post-3.png" alt="AutoRadar: sample post with a car" loading="lazy">
+      </div>
+      <figcaption>Sample posts</figcaption>
+    </figure>
+    <figure class="shots-block">
+      <div class="profile-grid">
+        <img src="/assets/autoradar-ai-chat-1.jpg" alt="AutoRadar: talking to the AI model — a question about a car" loading="lazy">
+        <img src="/assets/autoradar-ai-chat-2.jpg" alt="AutoRadar: talking to the AI model — an expert answer" loading="lazy">
+        <img src="/assets/autoradar-ai-chat-3.jpg" alt="AutoRadar: talking to the AI model — recommendations" loading="lazy">
+      </div>
+      <figcaption>Talking to the model: a question about a car — an expert answer</figcaption>
+    </figure>
+    <figure class="shots-block">
+      <div class="profile-grid">
+        <img src="/assets/autoradar-guest-1.png" alt="AutoRadar: guest panel — main menu" loading="lazy">
+        <img src="/assets/autoradar-guest-2.png" alt="AutoRadar: guest panel — search and filters" loading="lazy">
+        <img src="/assets/autoradar-guest-3.png" alt="AutoRadar: guest panel — sourcing result" loading="lazy">
+      </div>
+      <figcaption>The bot through the client's eyes: guest panel</figcaption>
+    </figure>
+    <figure class="shots-block">
+      <div class="feature-grid">
+        <img src="/assets/autoradar-admin-1.png" alt="AutoRadar: admin panel — source management" loading="lazy">
+        <img src="/assets/autoradar-admin-2.png" alt="AutoRadar: admin panel — starting a scrape" loading="lazy">
+        <img src="/assets/autoradar-admin-3.png" alt="AutoRadar: admin panel — system statistics" loading="lazy">
+        <img src="/assets/autoradar-admin-4.png" alt="AutoRadar: admin panel — user management" loading="lazy">
+      </div>
+      <figcaption>Admin panel: managing the system from Telegram</figcaption>
+    </figure>
+    <div class="metrics">
+      <div><b>4</b><span>source countries</span></div>
+      <div><b>40+</b><span>marketplaces &amp; TG channels</span></div>
+      <div><b>∞</b><span>listings — volume scales to your needs</span></div>
+      <div><b>minutes</b><span>per cost calculation instead of hours</span></div>
+    </div>
+    <div class="tags"><span class="tag">Python</span><span class="tag">Playwright</span><span class="tag">Docker</span><span class="tag">PostgreSQL</span><span class="tag">LLM</span></div>
+  </div>
+
+  <div class="card">
+    <h3>Auto.ru Feed Pipeline — an LLM pipeline</h3>
+    <p class="what">LLM chains turn raw scraper data into ready-to-upload XML feeds for Auto.ru (Russia's largest car marketplace) and client-facing content: descriptions, listing cards, ideas for short videos and ad creatives.</p>
+    <div class="case"><b>Case: zero manual labor.</b> Listing cards used to be written by hand → now the pipeline generates the description, specs, and feed on its own.</div>
+    <div class="metrics">
+      <div><b>0 h</b><span>of manual listing updates</span></div>
+      <div><b>100%</b><span>of cards auto-generated</span></div>
+      <div><b>minutes</b><span>from scraper data to a feed</span></div>
+    </div>
+    <div class="tags"><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">XML</span><span class="tag">Auto.ru</span></div>
+  </div>
+
+  <p style="color:var(--gray5);font-size:.95rem;margin-top:2rem">Beyond the main projects: AI-first prototypes — a website, a mini-game, automations; a personal knowledge base in Obsidian (AI, prompts, business processes, projects); working stack — VS Code + Codex/Copilot, OpenRouter, MCP, VPS administration and deployment.</p>
+</div></section>
+
+<div class="wrap"><section id="edu">
+  <h2>Education</h2>
+  <div class="edu-grid">
+    <div class="edu-item"><b>Ural Federal University · Master's degree</b><span>Organization and Management of High-Tech Production (2026). Project work: growing a car sourcing service — CRM, KPIs, customer journey.</span></div>
+    <div class="edu-item"><b>Ural Federal University · Bachelor's degree</b><span>Innovation Studies / Innovation Management (2024). Thesis in the "startup as a diploma" format: an automated used-car sourcing service.</span></div>
+  </div>
+  <div class="xedu">
+    <h3>Additional education</h3>
+    <div class="xedu-list">
+      <div class="xedu-row"><b>Mini MBA: financial management, accounting, HR management</b><span class="org">UrFU Business Education Center</span><span class="yr">2025</span></div>
+      <div class="xedu-row"><b>Fundamentals of Technology Entrepreneurship</b><span class="org">UrFU</span><span class="yr">2024</span></div>
+      <div class="xedu-row"><b>Project Management 101</b><span class="org">PMCLUB</span><span class="yr">2024</span></div>
+      <div class="xedu-row"><b>Intellectual Property Management</b><span class="org">Open Education</span><span class="yr">2023</span></div>
+      <div class="xedu-row"><b>Neural Networks and Computer Vision</b><span class="org">Stepik</span><span class="yr">2023</span></div>
+      <div class="xedu-row"><b>High-Tech Business Development and Technology Transfer</b><span class="org">UrFU</span><span class="yr">2023</span></div>
+      <div class="xedu-row"><b>Interactive SQL Trainer</b><span class="org">Stepik</span><span class="yr">2023</span></div>
+      <div class="xedu-row"><b>Fundamentals of Project Work</b><span class="org">Open Education</span><span class="yr">2021</span></div>
+    </div>
+    <p class="xedu-note">Scholarship holder of the "AI in the Auto Business" program · English B1–B2</p>
+  </div>
+</section></div>
+
+<section class="section-alt" id="contact"><div class="wrap contact-box">
+  <h2>Contact</h2>
+  <p>Open to projects at the intersection of AI and the automotive business</p>
+  <a class="btn btn-primary" href="https://t.me/SaMLLIiK">Message on Telegram</a>
+  <a class="btn btn-ghost" href="https://github.com/leonardschwarz269">GitHub</a>
+</div></section>
+
+<footer>© 2026 Sergey Malitsky · This site was built by an AI agent under my direction</footer>
+
+</body>
+</html>
