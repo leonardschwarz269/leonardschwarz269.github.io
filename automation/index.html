@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-автоматизация рутинных процессов бизнеса — Сергей Малицкий</title>
+<meta name="description" content="Подключаю AI к заявкам, CRM, таблицам, отчётам и мессенджерам. Реальные кейсы автоматизации: обработка заявок, AI-ассистент, аналитика, CRM поверх Google Sheets, контент-конвейер.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --alt:#f6f5f4; --text:rgba(0,0,0,.95);
+    --gray5:#615d59; --gray3:#a39e98; --dark:#31302e;
+    --blue:#0075de; --blue-active:#005bab;
+    --badge-bg:#f2f9ff; --badge-tx:#097fe8;
+    --border:rgba(0,0,0,.1);
+    --card-shadow:rgba(0,0,0,.04) 0 4px 18px, rgba(0,0,0,.027) 0 2px 7.8px, rgba(0,0,0,.02) 0 .8px 2.9px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-padding-top:4.5rem}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;font-size:16px}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  a:focus-visible,.btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
+  img{max-width:100%}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+
+  nav{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);z-index:10}
+  .nav-in{max-width:1100px;margin:0 auto;padding:.85rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  .logo{font-weight:700;font-size:1rem;letter-spacing:-.01em;white-space:nowrap}
+  .nav-links{display:flex;gap:1.5rem;font-size:.94rem;font-weight:500;align-items:center}
+  .nav-links a{color:var(--text)}
+  .nav-links a:hover{color:var(--blue);text-decoration:none}
+  .nav-cta{background:var(--blue);color:#fff !important;padding:.45rem 1rem;border-radius:4px;font-weight:600;font-size:.9rem;white-space:nowrap}
+  .nav-cta:hover{background:var(--blue-active);text-decoration:none}
+
+  .hero{padding:5rem 0 4rem;display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center}
+  h1{font-size:3rem;font-weight:700;line-height:1.08;letter-spacing:-.03em}
+  .hero-sub{margin-top:1.3rem;color:var(--gray5);font-size:1.08rem;line-height:1.6}
+  .hero-actions{margin-top:1.8rem;display:flex;gap:.8rem;flex-wrap:wrap}
+  .proof{margin-top:1.6rem;color:var(--gray5);font-size:.9rem}
+
+  .btn{display:inline-block;padding:.75rem 1.6rem;border-radius:4px;font-weight:600;font-size:.98rem}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-primary:hover{background:var(--blue-active);text-decoration:none}
+  .btn-ghost{background:rgba(0,0,0,.05);color:var(--text)}
+  .btn-ghost:hover{background:rgba(0,0,0,.09);text-decoration:none}
+
+  section{padding:4rem 0}
+  .section-alt{background:var(--alt)}
+  h2{font-size:2.2rem;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:.8rem}
+  .section-lead{color:var(--gray5);font-size:1rem;margin-bottom:2rem;max-width:640px}
+
+  .diagram-card{background:var(--alt);border:1px solid var(--border);border-radius:12px;padding:1.6rem}
+  .flow{display:flex;flex-direction:column}
+  .flow-node{background:#fff;border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;box-shadow:var(--card-shadow)}
+  .flow-node b{display:block;font-size:.95rem;font-weight:600}
+  .flow-node span{font-size:.8rem;color:var(--gray5)}
+  .flow-arrow{align-self:center;color:var(--gray5);font-size:1.05rem;line-height:1;padding:.3rem 0}
+  .flow-h{flex-direction:row;align-items:stretch;flex-wrap:wrap;gap:.2rem}
+  .flow-h .flow-node{flex:1 1 140px;display:flex;flex-direction:column;justify-content:center}
+  .flow-h .flow-arrow{align-self:center;padding:0 .35rem}
+  .schema-note{font-size:.8rem;color:var(--gray5);margin-top:.9rem;text-align:center}
+
+  .case-block{display:grid;grid-template-columns:1fr 1fr;gap:2.6rem;align-items:center;padding:2.6rem 0;border-bottom:1px solid var(--border)}
+  .case-block:last-of-type{border-bottom:none;padding-bottom:.6rem}
+  .case-block.alt .case-media{order:-1}
+  .status{display:inline-block;background:var(--badge-bg);color:var(--blue-active);font-size:.75rem;font-weight:600;letter-spacing:.125px;padding:.28rem .8rem;border-radius:9999px;margin-bottom:.9rem}
+  .case-block h3{font-size:1.5rem;font-weight:700;letter-spacing:-.015em;line-height:1.2}
+  .case-block .what{margin-top:.9rem;color:var(--gray5);font-size:.97rem;line-height:1.6}
+  .case-block .what b{color:var(--text);font-weight:600}
+  .chips{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .chip{background:var(--alt);border:1px solid var(--border);color:var(--gray5);font-size:.8rem;font-weight:500;padding:.32rem .85rem;border-radius:9999px}
+  .metrics{display:flex;gap:2.2rem;margin-top:1.3rem;flex-wrap:wrap}
+  .metrics b{display:block;font-size:1.7rem;font-weight:700;letter-spacing:-.02em;color:var(--blue)}
+  .metrics span{font-size:.8rem;color:var(--gray5)}
+
+  .case-media figure{margin:0}
+  .case-media figcaption{font-size:.8rem;color:var(--gray5);margin-top:.55rem;text-align:center}
+  .browser{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#fff;box-shadow:var(--card-shadow)}
+  .browser-bar{display:flex;gap:6px;padding:9px 12px;border-bottom:1px solid var(--border);background:var(--alt)}
+  .browser-bar i{width:10px;height:10px;border-radius:50%;background:var(--gray3);opacity:.55}
+  .browser img{width:100%;height:auto;display:block}
+  .phone{max-width:300px;margin:0 auto;border:1px solid var(--border);border-radius:26px;padding:10px;background:#fff;box-shadow:var(--card-shadow)}
+  .phone img{width:100%;height:auto;display:block;border-radius:17px}
+  .media-stack{display:flex;flex-direction:column;gap:1.2rem}
+
+  .mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2rem}
+  .mini-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.6rem;box-shadow:var(--card-shadow)}
+  .mini-card h3{font-size:1.12rem;font-weight:700;letter-spacing:-.01em}
+  .mini-card p{margin-top:.6rem;font-size:.92rem;color:var(--gray5);line-height:1.6}
+  .mini-card .status{margin-bottom:.7rem}
+
+  .steps{list-style:none;counter-reset:step;max-width:720px}
+  .steps li{counter-increment:step;display:flex;gap:1.1rem;padding:1.1rem 0;border-bottom:1px solid var(--border);align-items:flex-start}
+  .steps li:last-child{border-bottom:none}
+  .steps li::before{content:counter(step);flex:0 0 auto;display:flex;width:2rem;height:2rem;border-radius:50%;background:var(--badge-bg);color:var(--blue-active);font-weight:700;font-size:.95rem;align-items:center;justify-content:center;margin-top:.1rem}
+  .steps b{display:block;font-weight:600}
+  .steps span{font-size:.92rem;color:var(--gray5);line-height:1.55}
+
+  .contact-box{text-align:center;padding:1rem 0 1.5rem;max-width:640px;margin:0 auto}
+  .contact-box h2{margin-bottom:1rem}
+  .contact-box p{color:var(--gray5);margin-bottom:2rem}
+
+  footer{padding:2.5rem 0;color:var(--gray5);font-size:.85rem;border-top:1px solid var(--border);text-align:center}
+  footer a{color:var(--gray5);font-weight:600}
+  footer a:hover{color:var(--blue)}
+
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;gap:2.2rem;padding:3.5rem 0 3rem}
+    .case-block{grid-template-columns:1fr;gap:1.6rem}
+    .case-block.alt .case-media{order:0}
+    .mini-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:760px){
+    h1{font-size:2.2rem}
+    h2{font-size:1.8rem}
+    .nav-in{flex-wrap:wrap;row-gap:.4rem;padding:.7rem 1rem}
+    .nav-links{gap:.8rem;font-size:.85rem;flex-wrap:wrap}
+    .nav-cta{font-size:.82rem;padding:.4rem .8rem}
+    .wrap{padding:0 1rem}
+    section{padding:3rem 0}
+    .metrics{gap:1.4rem}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="nav-in">
+  <div class="logo">Внедрение AI в бизнес</div>
+  <div class="nav-links"><a href="/">Для автобизнеса</a><a href="#cases">Кейсы</a><a class="nav-cta" href="https://t.me/Samlliik">Обсудить задачу</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <h1>AI-автоматизация рутинных процессов бизнеса</h1>
+      <p class="hero-sub">Подключаю AI к тому, где команда каждый день делает одно и то же руками: заявки, CRM, таблицы, отчёты и мессенджеры. Система разбирает рутину, а люди принимают решения.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://t.me/Samlliik">Обсудить задачу</a>
+        <a class="btn btn-ghost" href="#cases">Посмотреть кейсы</a>
+      </div>
+      <p class="proof">8 лет в реальном бизнесе · 500+ сделок · год разработки AI-систем</p>
+    </div>
+    <figure class="diagram-card">
+      <div class="flow" aria-label="Схема: заявка поступает в AI, передаётся в CRM или менеджеру и превращается в отчёт">
+        <div class="flow-node"><b>Заявка</b><span>мессенджеры, почта, формы</span></div>
+        <div class="flow-arrow" aria-hidden="true">↓</div>
+        <div class="flow-node"><b>AI</b><span>классификация, данные, черновик ответа</span></div>
+        <div class="flow-arrow" aria-hidden="true">↓</div>
+        <div class="flow-node"><b>CRM / менеджер</b><span>проверка и решение по заявке</span></div>
+        <div class="flow-arrow" aria-hidden="true">↓</div>
+        <div class="flow-node"><b>Отчёт</b><span>статусы и цифры для руководителя</span></div>
+      </div>
+      <figcaption class="schema-note">Схема типового процесса, не скриншот</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section class="section-alt" id="cases"><div class="wrap">
+  <h2>Кейсы</h2>
+  <p class="section-lead">Реальные проекты с честными статусами: что уже работает, что в коммерческом тесте, а что пилот.</p>
+
+  <div class="case-block">
+    <div class="case-text">
+      <span class="status">MVP в коммерческом тесте</span>
+      <h3>AI-обработка заявок</h3>
+      <p class="what"><b>Задача.</b> Заявки из мессенджеров и почты разбираются вручную: часть теряется, часть обрабатывается медленно, единой картины нет.</p>
+      <p class="what"><b>Решение.</b> AI классифицирует обращение, извлекает ключевые данные, готовит черновик ответа и передаёт заявку менеджеру на подтверждение. Спорные случаи не отправляются клиенту автоматически.</p>
+      <p class="what"><b>Интеграции.</b></p>
+      <div class="chips"><span class="chip">Telegram и другие мессенджеры</span><span class="chip">CRM</span><span class="chip">Google Sheets</span><span class="chip">Почта</span><span class="chip">API</span></div>
+    </div>
+    <div class="case-media">
+      <figure class="diagram-card">
+        <div class="flow" aria-label="Схема обработки заявки: сообщение, AI-разбор, менеджер, ответ клиенту">
+          <div class="flow-node"><b>Сообщение клиента</b><span>мессенджер или почта</span></div>
+          <div class="flow-arrow" aria-hidden="true">↓</div>
+          <div class="flow-node"><b>AI-разбор</b><span>тип заявки, данные, черновик ответа</span></div>
+          <div class="flow-arrow" aria-hidden="true">↓</div>
+          <div class="flow-node"><b>Менеджер / CRM</b><span>подтверждение или правка</span></div>
+          <div class="flow-arrow" aria-hidden="true">↓</div>
+          <div class="flow-node"><b>Ответ клиенту</b><span>и запись в учёте</span></div>
+        </div>
+        <figcaption class="schema-note">Схема процесса</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="case-block alt">
+    <div class="case-text">
+      <span class="status">Работает ежедневно</span>
+      <h3>Hermes — AI-ассистент 24/7</h3>
+      <p class="what"><b>Задача.</b> Личный и командный ассистент, который доступен в мессенджере в любое время и берёт на себя повторяющиеся поручения.</p>
+      <p class="what"><b>Решение.</b> Ассистент живёт на VPS: Telegram-роутер на Python, 30 модулей, тесты, запуск через systemd. Роли под разные задачи, работа с голосовыми и документами, задачи по расписанию, регулярные отчёты.</p>
+      <p class="what"><b>Результат.</b> Поручения выполняются без ручного запуска: от расшифровки голосового до подготовки сводки по расписанию.</p>
+    </div>
+    <div class="case-media">
+      <figure>
+        <div class="browser">
+          <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <img src="/assets/hermes-agent-cover.jpg" alt="Схема работы Hermes: агент на VPS, мониторинг systemd, очередь задач и отчёты в Telegram" loading="lazy">
+        </div>
+        <figcaption>Архитектура ассистента: VPS, мониторинг, очередь задач, Telegram</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="case-block">
+    <div class="case-text">
+      <span class="status">В эксплуатации, отраслевой кейс</span>
+      <h3>Аналитическая платформа</h3>
+      <p class="what"><b>Задача.</b> Рынок дилерских сетей автобрендов непрозрачен: данные разбросаны по сайтам, сравнить города и бренды вручную сложно. Это честный автоотраслевой кейс, на котором отработан весь цикл работы с данными.</p>
+      <p class="what"><b>Решение.</b> Интерактивная карта, обозреватель городов, динамика изменений, еженедельное обновление данных и городские отчёты с экспортом CSV/PDF.</p>
+      <div class="metrics">
+        <div><b>4 900+</b><span>записей в базе</span></div>
+        <div><b>78</b><span>брендов</span></div>
+        <div><b>84</b><span>региона</span></div>
+      </div>
+    </div>
+    <div class="case-media">
+      <div class="media-stack">
+        <figure>
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <img src="/assets/automation-analytics-map.jpg" alt="Интерактивная карта дилерских сетей: площадки Екатеринбурга на карте и в списке" loading="lazy">
+          </div>
+          <figcaption>Интерактивная карта и фильтры по городу</figcaption>
+        </figure>
+        <figure>
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <img src="/assets/automation-analytics-report.jpg" alt="Городской отчёт по дилерской сети: агрегированные метрики и экспорт CSV/PDF" loading="lazy">
+          </div>
+          <figcaption>Городской отчёт: агрегаты и экспорт</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-block alt">
+    <div class="case-text">
+      <span class="status">Коммерческий MVP</span>
+      <h3>CRM поверх Google Sheets</h3>
+      <p class="what"><b>Задача.</b> Команда ведёт клиентов в таблице, но таблице не хватает статусов, фильтров и контролируемой переписки с клиентами; полноценная CRM пока избыточна.</p>
+      <p class="what"><b>Решение.</b> Лёгкая CRM поверх Google Sheets: двусторонняя синхронизация, статусы и фильтры, 600+ записей в работе. Письма клиентам готовятся системой, но отправляются только после подтверждения менеджером.</p>
+    </div>
+    <div class="case-media">
+      <figure class="diagram-card">
+        <div class="flow flow-h" aria-label="Схема: Google Sheets синхронизируется с CRM, из CRM письмо уходит клиенту после подтверждения">
+          <div class="flow-node"><b>Google Sheets</b><span>учёт клиентов</span></div>
+          <div class="flow-arrow" aria-hidden="true">↔</div>
+          <div class="flow-node"><b>CRM</b><span>статусы, фильтры</span></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-node"><b>Письмо</b><span>после подтверждения менеджером</span></div>
+        </div>
+        <figcaption class="schema-note">Схема: двусторонняя синхронизация и отправка писем</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="case-block">
+    <div class="case-text">
+      <span class="status">В эксплуатации</span>
+      <h3>Данные → карточки → контент → публикации</h3>
+      <p class="what"><b>Задача.</b> Контент для площадок и каналов собирается вручную: данные нужно найти, привести к единому виду, оформить и опубликовать.</p>
+      <p class="what"><b>Решение.</b> Конвейер из двух моих проектов — AutoRadar (сбор данных) и Feed Pipeline (карточки и публикации): парсеры и данные → нормализация → карточки → фиды и посты. Черновики проверяются перед публикацией.</p>
+      <p class="what"><b>Результат.</b> Вместо ручной сборки карточек — поток готовых материалов с единым форматом и контролем качества.</p>
+    </div>
+    <div class="case-media">
+      <figure>
+        <div class="browser">
+          <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <img src="/assets/automation-content-cover.jpg" alt="Обложка проекта AutoRadar: парсинг авто с площадок CN, US, GE и KR в базу данных, аналитика и вывод в Telegram" loading="lazy">
+        </div>
+        <figcaption>Парсинг площадок → база данных → аналитика → публикации в Telegram</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="mini-grid">
+    <div class="mini-card">
+      <span class="status">Рабочая версия на телефоне</span>
+      <h3>Android-виджет для Obsidian</h3>
+      <p>Виджет для заметок Obsidian на Android: рабочий APK собран и проверен на реальном телефоне. Небольшой пример того, что довожу до работающего артефакта, а не до демо-слайда.</p>
+    </div>
+    <div class="mini-card">
+      <span class="status">Первый урок проведён</span>
+      <h3>Обучение работе с AI-агентами</h3>
+      <p>Учу команды работать с AI-агентами на их собственных процессах. Формат: разбор процессов → пилот → обучение команды. Первый урок уже проведён.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="process"><div class="wrap">
+  <h2>Как внедряю</h2>
+  <p class="section-lead">Без магии и без обещаний «всё за неделю»: идём от одного понятного процесса к проверяемому результату.</p>
+  <ol class="steps">
+    <li><div><b>Разбор процесса</b><span>Смотрим, где рутина, какие данные уже есть и что считается хорошим результатом.</span></div></li>
+    <li><div><b>Пилот</b><span>Собираю минимальную рабочую версию на ваших реальных задачах, а не на демо-данных.</span></div></li>
+    <li><div><b>Проверка и доводка</b><span>Сверяем результат с ожиданиями, правлю по обратной связи; спорные действия остаются за человеком.</span></div></li>
+    <li><div><b>Передача и обучение</b><span>Показываю, как пользоваться, оставляю инструкции и точки контроля.</span></div></li>
+  </ol>
+</div></section>
+
+<section class="section-alt" id="contact"><div class="wrap">
+  <div class="contact-box">
+    <h2>Обсудить задачу</h2>
+    <p>Напишите в Telegram и расскажите про одну рутинную задачу, которая съедает время команды. В ответ предложу один понятный следующий шаг: что можно автоматизировать и с чего начать.</p>
+    <a class="btn btn-primary" href="https://t.me/Samlliik">Обсудить задачу</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  © 2026 · <a href="https://t.me/Samlliik">Telegram</a>
+</div></footer>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+.team/
+.impeccable/
+__pycache__/
+*.pyc
+PRODUCT.md
